@@ -7,6 +7,7 @@ class AppStyles {
   static Color headerTextColor = const Color(0xff3b3b3b);
   static Color lightTextColor = const Color(0xff949494);
   static Color backgroundColor = const Color(0xffeeedf1);
+  static  Color redBackground = const Color(0xffF0705B);
 
   static TextStyle headerTextStyle1 = TextStyle(
     color: headerTextColor,

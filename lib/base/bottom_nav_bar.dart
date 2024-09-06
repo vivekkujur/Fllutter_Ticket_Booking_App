@@ -1,7 +1,5 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/base/res/styles/app_styles.dart';
 import 'package:flutter_app/views/home_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -31,10 +29,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyles.backgroundColor,
 
-        appBar: AppBar(
-        ),
+
         body: appScreens[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedIndex,

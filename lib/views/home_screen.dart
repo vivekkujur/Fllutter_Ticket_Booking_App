@@ -1,8 +1,12 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/base/all_json.dart';
 import 'package:flutter_app/base/app_double_text.dart';
+import 'package:flutter_app/base/hotels_view.dart';
 import 'package:flutter_app/base/res/styles/app_styles.dart';
+import 'package:flutter_app/base/ticket_view.dart';
+import 'package:flutter_app/views/all_hotels.dart';
+import 'package:flutter_app/views/all_tickets.dart';
 
 import '../base/res/media.dart';
 
@@ -18,6 +22,7 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
+                const SizedBox(height: 40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -37,43 +42,99 @@ class HomeScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
-                          image: const DecorationImage(image: AssetImage(AddMedia.logo))),
+                          image: const DecorationImage(
+                              image: AssetImage(AddMedia.logo))),
                     )
                   ],
                 ),
-                SizedBox(height: 16,),
+                const SizedBox(
+                  height: 16,
+                ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16,vertical: 8),
-
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10) , color:  Colors.white),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white),
                   child: Row(
                     children: [
-                      Icon(FluentSystemIcons.ic_fluent_search_regular),
-                      Text(" Search", style: AppStyles.lightTextStyle4,)
+                      const Icon(FluentSystemIcons.ic_fluent_search_regular),
+
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                          child: TextField(
+                        obscureText: false,
+                        decoration: InputDecoration(
+                            hintText: "Search",
+                            hintStyle: AppStyles.baseTextStyle,
+                            border: InputBorder.none),
+                      ))
+                      // Text(
+                      //   " Search",
+                      //   style: AppStyles.lightTextStyle4,
+                      // )
                     ],
                   ),
                 ),
-                SizedBox(height:40,),
-                AppDoubleText(titleTxt: "Upcoming Flights", secTxt: "View All",),
-                Container(
-                    child: const Column(children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                        ],
-                      ),
+                const SizedBox(
+                  height: 40,
+                ),
+                const AppDoubleText(
+                  titleTxt: "Upcoming Flights",
+                  secTxt: "View All",
+                  navWidget: AllTickets(),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: ticketList
+                        .take(2)
+                        .map((item) => TicketView(
+                              itemjson: item,
+                            ))
+                        .toList(),
+                  ),
+                ),
+                // SizedBox(
+                //   height: 200,
+                //   child: ListView.builder(
+                //       itemCount: 2,
+                //       scrollDirection: Axis.horizontal,
+                //       itemBuilder: (context,index){
+                //     return  TicketView();
+                //   }),
+                // ),
 
+                const SizedBox(
+                  height: 20,
+                ),
 
-                    ],)),
-                AppDoubleText(titleTxt: "Hotels", secTxt: "View All",),
-
+                const AppDoubleText(
+                  titleTxt: "Hotels",
+                  secTxt: "View All",
+                  navWidget: AllHotels(),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: hotelList
+                        .take(2)
+                        .map((item) => HotelsView(itemjson: item))
+                        .toList(),
+                  ),
+                ),
+                const SizedBox(height: 40),
               ],
             ),
           ),
-
-
-
-
         ],
       ),
     );
