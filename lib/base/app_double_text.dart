@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/base/res/styles/app_styles.dart';
+import 'package:flutter_app/views/home/all_tickets.dart';
 
 class AppDoubleText extends StatelessWidget {
-  const AppDoubleText({super.key, required this.titleTxt, required this.secTxt, required this.navWidget});
+  const AppDoubleText({super.key, required this.titleTxt, required this.secTxt,  this.navWidget = const AllTickets()});
   final String titleTxt ;
   final String secTxt;
   final Widget navWidget;

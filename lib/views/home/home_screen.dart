@@ -5,10 +5,10 @@ import 'package:flutter_app/base/app_double_text.dart';
 import 'package:flutter_app/base/hotels_view.dart';
 import 'package:flutter_app/base/res/styles/app_styles.dart';
 import 'package:flutter_app/base/ticket_view.dart';
-import 'package:flutter_app/views/all_hotels.dart';
-import 'package:flutter_app/views/all_tickets.dart';
+import 'package:flutter_app/views/home/all_hotels.dart';
+import 'package:flutter_app/views/home/all_tickets.dart';
 
-import '../base/res/media.dart';
+import '../../base/res/media.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
