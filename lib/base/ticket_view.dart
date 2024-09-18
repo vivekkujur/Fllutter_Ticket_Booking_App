@@ -5,8 +5,9 @@ import 'package:flutter_app/base/big_dot.dart';
 import 'package:flutter_app/base/res/styles/app_styles.dart';
 
 class TicketView extends StatelessWidget {
-  const TicketView({super.key, required this.itemjson});
+  const TicketView({super.key, required this.itemjson,  this.isColor = true});
   final Map<String,dynamic> itemjson ;
+  final  bool isColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class TicketView extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-              color: AppStyles.primaryColor,
+              color: isColor == true ?AppStyles.primaryColor : Colors.white,
             ),
             child: Column(
               children: [
@@ -109,7 +110,7 @@ class TicketView extends StatelessWidget {
             ),
           ),
           Container(
-            color: AppStyles.redBackground,
+            color: isColor == true ? AppStyles.redBackground : Colors.white,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -141,7 +142,7 @@ class TicketView extends StatelessWidget {
               borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10)),
-              color: AppStyles.redBackground,
+              color: isColor == true ? AppStyles.redBackground :Colors.white,
             ),
             child: Column(
               children: [

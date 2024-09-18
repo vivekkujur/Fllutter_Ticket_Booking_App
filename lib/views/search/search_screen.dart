@@ -31,7 +31,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   .copyWith(fontSize: 30, fontWeight: FontWeight.w600),
             ),
           ),
-          const SearchTabs(),
+          const SearchTabs(firstTab: "Airline Tickets", secTab: 'Hotels',),
           const SizedBox(
             height: 30,
           ),

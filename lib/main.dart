@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/base/Languages.dart';
 import 'package:flutter_app/base/bottom_nav_bar.dart';
+import 'package:flutter_app/views/home/all_tickets.dart';
+import 'package:flutter_app/views/home/home_screen.dart';
+import 'package:flutter_app/views/ticket/tickets_screen.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +16,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: BottomNavBar(),
+        translations: Languages(),
+        locale: const Locale("en","Us"),
+        fallbackLocale: const Locale("en","Us"),
+        getPages: [
+          GetPage(name: '/', page:()=> const BottomNavBar()),
+          GetPage(name: '/homeScreen', page:()=> HomeScreen()),
+          GetPage(name: '/ticketScreen', page:()=> TicketsScreen()),
+          GetPage(name: '/allTickets', page:()=> AllTickets())
+
+        ],
         // routes: {
         //
         //

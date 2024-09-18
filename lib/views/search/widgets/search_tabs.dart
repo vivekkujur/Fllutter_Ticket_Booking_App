@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/base/res/styles/app_styles.dart';
 
 class SearchTabs extends StatelessWidget {
-  const SearchTabs({super.key});
+  const SearchTabs({super.key, required this.firstTab, required this.secTab});
 
+  final String firstTab ;
+  final String secTab;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -13,15 +15,15 @@ class SearchTabs extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
           color: AppStyles.tabUnselected),
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           AppTabs(
-            tabtext: 'All Tickets',
+            tabtext: firstTab,
             tabBorder: false,
           ),
           AppTabs(
-            tabtext: 'Hotel',
+            tabtext: secTab,
             tabBorder: true,
             tabColor: true,
           )
